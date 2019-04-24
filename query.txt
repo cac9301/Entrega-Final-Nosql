@@ -1,0 +1,21 @@
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX ont: <http://purl.org/net/ns/ontology-annot#>
+PREFIX fabio: <http://purl.org/spar/fabio/>
+PREFIX fab: <http://purl.org/fab/ns#>
+PREFIX cert: <http://www.w3.org/ns/auth/cert#>
+PREFIX li: <http://def.seegrid.csiro.au/isotc211/iso19115/2003/lineage#>
+PREFIX literal: <http://www.essepuntato.it/2010/06/literalreification/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT  (count(distinct ?author) as ?count){
+SELECT ?author WHERE {
+  
+  OPTIONAL { ?documento fabio:JournalArticle ?article}
+  OPTIONAL { ?documento dc:created ?fecha}
+  OPTIONAL { ?documento dc:title  ?title}
+  OPTIONAL { ?documento dc:contributor ?autores}
+}
+ GROUP BY ?author
+ }
+LIMIT 25
