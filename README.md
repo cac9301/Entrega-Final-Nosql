@@ -18,11 +18,15 @@ Pruebe los siguientes querys como se encuentran en la carpeta de presentacion
 # QUERY
 
 SELECT  (count(distinct ?author) as ?count){
+
 SELECT ?author WHERE {
   
   OPTIONAL { ?documento fabio:JournalArticle ?article}
+  
   OPTIONAL { ?documento dc:created ?fecha}
+  
   OPTIONAL { ?documento dc:title  ?title}
+  
   OPTIONAL { ?documento dc:contributor ?autores}
 }
  GROUP BY ?author
