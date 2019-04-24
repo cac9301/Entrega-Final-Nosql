@@ -28,7 +28,11 @@ SELECT ?author WHERE {
   OPTIONAL { ?documento dc:title  ?title}
   
   OPTIONAL { ?documento dc:contributor ?autores}
+
 }
+ 
  GROUP BY ?author
+ 
  }
+ 
 LIMIT 25
