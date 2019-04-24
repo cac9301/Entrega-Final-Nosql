@@ -14,3 +14,17 @@ y proporcione el nombre de la base de datos con la cual vamos a realizar las con
 
 Ahora vaya a Dataset, seleccione el menú desplegable y pruebe "Info and Query". 
 Pruebe los siguientes querys como se encuentran en la carpeta de presentacion 
+
+# QUERY
+
+SELECT  (count(distinct ?author) as ?count){
+SELECT ?author WHERE {
+  
+  OPTIONAL { ?documento fabio:JournalArticle ?article}
+  OPTIONAL { ?documento dc:created ?fecha}
+  OPTIONAL { ?documento dc:title  ?title}
+  OPTIONAL { ?documento dc:contributor ?autores}
+}
+ GROUP BY ?author
+ }
+LIMIT 25
